@@ -10,7 +10,8 @@ This is an implementation of the [realworld backend spec](https://github.com/got
 1. Run `lucky dev` to start the app
 
 
-### Testing using postman
+### Testing using postman/newman
+to launch test, we use [newman](https://github.com/postmanlabs/newman#getting-started)
 
     POSTMANCOLL=Conduit.auth.postman_collection.json APIURL=http://localhost:5000/api postman/run-api-tests.sh
 
