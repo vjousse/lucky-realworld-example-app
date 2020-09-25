@@ -1,6 +1,6 @@
 class Api::Me::Update < ApiAction
   put "/api/user" do
-    #TODO: update user
-    json UserSerializer.new(current_user)
+    user = UpdateUser.update!(current_user, params)
+    json UserSerializer.new(user)
   end
 end
