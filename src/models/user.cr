@@ -7,7 +7,7 @@ class User < BaseModel
     column email : String
     column encrypted_password : String
     column username : String
-    image : String?
+    column image : String?
   end
 
   def emailable : Carbon::Address

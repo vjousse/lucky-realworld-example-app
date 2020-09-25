@@ -3,6 +3,12 @@ class UserSerializer < BaseSerializer
   end
 
   def render
-    {email: @user.email}
+    {
+      email: @user.email,
+      username: @user.username,
+      bio: @user.bio,
+      image: @user.image,
+      token: UserToken.generate(@user)
+    }
   end
 end
