@@ -12,6 +12,7 @@ module Api::Auth::Helpers
   private def bearer_token : String?
     context.request.headers["Authorization"]?
       .try(&.gsub("Bearer", ""))
+      .try(&.gsub("Token", ""))
       .try(&.strip)
   end
 
