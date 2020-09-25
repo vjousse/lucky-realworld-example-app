@@ -6,7 +6,7 @@ class User < BaseModel
     column bio : String?
     column email : String
     column encrypted_password : String
-    column username : String
+    column username : String?
     column image : String?
   end
 

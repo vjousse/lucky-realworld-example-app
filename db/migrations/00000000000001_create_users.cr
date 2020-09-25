@@ -7,7 +7,7 @@ class CreateUsers::V00000000000001 < Avram::Migrator::Migration::V1
       add email : String, unique: true
       add encrypted_password : String
       add image : String?
-      add username : String, unique: true
+      add username : String?, unique: true
     end
   end
 
