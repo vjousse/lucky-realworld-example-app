@@ -5,7 +5,7 @@ describe Api::Users::Create do
     UserToken.stub_token("fake-token") do
       response = ApiClient.exec(Api::Users::Create, user: valid_params)
 
-      response.should send_json(200, user: { email: valid_params[:email], username: nil, bio: nil, image: nil, token: "fake-token" })
+      response.should send_json(200, user: { email: valid_params[:email], username: valid_params[:username], bio: valid_params[:bio], image: valid_params[:image], token: "fake-token" })
 
       new_user = UserQuery.first
       new_user.email.should eq(valid_params[:email])
@@ -30,5 +30,8 @@ private def valid_params
   {
     email:                 "test@email.com",
     password:              "password",
+    username:              "test",
+    bio:                   "Bio test",
+    image:                 "http://awesome.com/image.png",
   }
 end
