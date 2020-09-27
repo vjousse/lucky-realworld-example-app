@@ -27,9 +27,9 @@ Lucky uses the [Crystal](https://crystal-lang.org) programming language. You can
   - [x] Registration
   - [x] Get Current User
   - [x] Update User
-- [ ] Get Profile
-- [ ] Follow user
-- [ ] Unfollow user
+- [x] Get Profile
+- [x] Follow user
+- [x] Unfollow user
 - [ ] Create Article
 - [ ] List Articles
   - [ ] Filter by tag
