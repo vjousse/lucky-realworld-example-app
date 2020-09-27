@@ -10,9 +10,17 @@ class CreateFollow::V20200926141022 < Avram::Migrator::Migration::V1
       add_belongs_to following : User, on_delete: :cascade
     end
 
+    execute <<-SQL
+      ALTER TABLE follows ADD CONSTRAINT follow_unique UNIQUE (follower_id, following_id);
+    SQL
+
   end
 
   def rollback
     drop table_for(Follow)
+
+    execute <<-SQL
+      ALTER TABLE follows DROP CONSTRAINT follow_unique;
+    SQL
   end
 end
