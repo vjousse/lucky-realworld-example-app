@@ -4,6 +4,7 @@ Dotenv.load?
 
 # Require your shards here
 require "avram"
+require "avram_slugify"
 require "lucky"
 require "carbon"
 require "authentic"
