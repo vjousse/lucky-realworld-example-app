@@ -17,10 +17,10 @@ class CreateFollow::V20200926141022 < Avram::Migrator::Migration::V1
   end
 
   def rollback
-    drop table_for(Follow)
-
     execute <<-SQL
       ALTER TABLE follows DROP CONSTRAINT follow_unique;
     SQL
+
+    drop table_for(Follow)
   end
 end
