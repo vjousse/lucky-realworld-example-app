@@ -10,7 +10,7 @@ class Api::Articles::Update < ApiAction
       )
     end
 
-    json ArticleSerializer.new(article.reload(&.preload_tags))
+    json ArticleSerializer.with_key(article.reload(&.preload_tags))
 
   end
 end
