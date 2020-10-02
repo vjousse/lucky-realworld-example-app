@@ -1,5 +1,5 @@
 class Api::Me::Show < ApiAction
   get "/api/user" do
-    json UserSerializer.new(current_user)
+    json UserSerializer.with_key(current_user)
   end
 end

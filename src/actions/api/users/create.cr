@@ -3,6 +3,6 @@ class Api::Users::Create < ApiAction
 
   route do
     user = SignUpUser.create!(params)
-    json UserSerializer.new(user)
+    json UserSerializer.with_key(user)
   end
 end

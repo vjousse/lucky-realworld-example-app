@@ -8,25 +8,14 @@ class ArticleSerializer < BaseSerializer
       slug: @article.slug,
       description: @article.description,
       body: @article.body,
-      tagList: @article.tags.map(&.name)
+      tagList: @article.tags.map(&.name),
+      createdAt: @article.created_at,
+      updatedAt: @article.updated_at,
+      favorited: false,
+      favoritesCount: 0,
+      author: UserSerializer.new(@article.author).render_for_article
     }
   end
-
-  def self.with_key(object, *args, **named_args)
-    {
-      self.single_key => new(object, *args, **named_args)
-    }
-  end
-
-
-  def self.for_collection(collection : Enumerable, *args, **named_args)
-    {
-      self.collection_key => collection.map do |object|
-        new(object, *args, **named_args)
-      end
-    }
-  end
-
 
   def self.collection_key
     "articles"
