@@ -4,7 +4,7 @@ class CreateTags::V20200928194736 < Avram::Migrator::Migration::V1
     create table_for(Tag) do
       primary_key id : Int64
       add_timestamps
-      add name : String
+      add name : String, unique: true
     end
   end
 
