@@ -7,6 +7,7 @@ class CreateArticles::V20200927202618 < Avram::Migrator::Migration::V1
       add title : String
       add body : String
       add description : String
+      add_belongs_to author : User, on_delete: :cascade
     end
   end
 

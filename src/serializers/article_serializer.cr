@@ -8,7 +8,8 @@ class ArticleSerializer < BaseSerializer
         title: @article.title,
         slug: @article.slug,
         description: @article.description,
-        body: @article.body
+        body: @article.body,
+        tagList: @article.tags.map(&.name)
       }
     }
   end

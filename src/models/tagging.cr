@@ -1,6 +1,6 @@
 class Tagging < BaseModel
-  table :tagging do
-    belongs_to user : User
+  table do
+    belongs_to article : Article
     belongs_to tag : Tag
   end
 end
