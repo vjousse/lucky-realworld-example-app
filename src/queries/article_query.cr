@@ -6,12 +6,12 @@ class ArticleQuery < Article::BaseQuery
 
       SaveTag.create(name: name) do |operation, created_tag|
         if created_tag
-          tagging = SaveTagging.create!(article_id: article.id, tag_id: created_tag.id)
+          SaveTagging.create!(article_id: article.id, tag_id: created_tag.id)
         else
           new_tag = TagQuery.new.name(name).first
 
           if !article.reload(&.preload_tags).tags.includes?(new_tag)
-            tagging = SaveTagging.create!(article_id: article.id, tag_id: new_tag.id)
+            SaveTagging.create!(article_id: article.id, tag_id: new_tag.id)
           end
 
         end
