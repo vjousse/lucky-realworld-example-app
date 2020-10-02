@@ -3,13 +3,22 @@ class Api::Articles::Create < ApiAction
 
     article = SaveArticle.create!(params, author_id: current_user.id)
 
-    SaveTag.create(name: "Testtag") do |operation, tag|
-      if tag
-        tagging = SaveTagging.create!(article_id: article.id, tag_id: tag.id)
-      else
-        new_tag = TagQuery.new.name("Testtag").first
+    if tags = params.from_json["article"]["tagList"].as_a
+      tags.map(&.as_s).each do |name|
 
-        tagging = SaveTagging.create!(article_id: article.id, tag_id: new_tag.id)
+        SaveTag.create(name: name) do |operation, created_tag|
+          if created_tag
+            tagging = SaveTagging.create!(article_id: article.id, tag_id: created_tag.id)
+          else
+            new_tag = TagQuery.new.name(name).first
+
+            if !article.reload(&.preload_tags).tags.includes?(new_tag)
+              tagging = SaveTagging.create!(article_id: article.id, tag_id: new_tag.id)
+            end
+
+          end
+        end
+
       end
     end
 
