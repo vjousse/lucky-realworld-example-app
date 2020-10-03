@@ -9,8 +9,8 @@ class ArticleSerializer < BaseSerializer
       description: @article.description,
       body: @article.body,
       tagList: @article.tags.map(&.name),
-      createdAt: @article.created_at,
-      updatedAt: @article.updated_at,
+      createdAt: @tf.format(@article.created_at),
+      updatedAt: @tf.format(@article.updated_at),
       favorited: false,
       favoritesCount: 0,
       author: UserSerializer.new(@article.author).render_for_article

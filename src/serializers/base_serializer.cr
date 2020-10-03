@@ -1,5 +1,7 @@
 abstract class BaseSerializer < Lucky::Serializer
 
+  @tf = Time::Format.new("%FT%H:%M:%S.%LZ")
+
   def self.for_collection(collection : Enumerable, *args, **named_args)
     collection.map do |object|
       new(object, *args, **named_args)
