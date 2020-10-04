@@ -15,12 +15,20 @@ abstract class BaseSerializer < Lucky::Serializer
   end
 
 
-  def self.for_collection_with_key(collection : Enumerable, *args, **named_args)
-    {
+  def self.for_collection_with_key(collection : Enumerable, countString=nil, *args, **named_args)
+
+    result = {
       self.collection_key => collection.map do |object|
         new(object, *args, **named_args)
       end
     }
+
+    if countString
+      result = result.merge({countString => collection.size})
+    end
+
+    return result
+
   end
 
 end

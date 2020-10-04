@@ -4,6 +4,6 @@ class Api::Articles::Index < ApiAction
 
   get "/api/articles" do
     articles = ArticleQuery.new.preload_tags.preload_author
-    json ArticleSerializer.for_collection_with_key(articles)
+    json ArticleSerializer.for_collection_with_key(articles, "articlesCount")
   end
 end
