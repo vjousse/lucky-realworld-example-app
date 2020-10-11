@@ -21,7 +21,7 @@ describe Api::Articles::Update do
         favorited: false,
         favoritesCount: 0,
         author: {
-          username: "test-username-1",
+          username: article.author.username,
           bio: nil,
           image: nil,
           following: false
