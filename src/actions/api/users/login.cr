@@ -4,7 +4,7 @@ class Api::Users::Login::Create < ApiAction
   route do
     SignInUser.new(params).submit do |operation, user|
       if user
-        json UserSerializer.new(user)
+        json UserSerializer.with_key(user)
       else
         raise Avram::InvalidOperationError.new(operation)
       end

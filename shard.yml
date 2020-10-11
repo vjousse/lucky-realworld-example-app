@@ -2,7 +2,7 @@ name: lucky_realworld_example_app
 version: 0.1.0
 
 authors:
-  - your-name-here <your-email-here>
+  - Vincent Jousse <vincent@jousse.org>
 
 targets:
   lucky_realworld_example_app:
@@ -11,9 +11,9 @@ targets:
 crystal: 0.35.1
 
 dependencies:
-  lucky:
-    github: luckyframework/lucky
-    version: ~> 0.24.0
+  avram_slugify:
+    github: luckyframework/avram_slugify
+    version: ~> 0.1
   authentic:
     github: luckyframework/authentic
     version: ~> 0.7.0
@@ -26,3 +26,6 @@ dependencies:
   jwt:
     github: crystal-community/jwt
     version: ~> 1.4.2
+  lucky:
+    github: luckyframework/lucky
+    version: ~> 0.24.0
