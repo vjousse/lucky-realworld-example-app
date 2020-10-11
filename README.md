@@ -30,7 +30,7 @@ Lucky uses the [Crystal](https://crystal-lang.org) programming language. You can
 - [x] Get Profile
 - [x] Follow user
 - [x] Unfollow user
-- [ ] Create Article
+- [x] Create Article
 - [ ] List Articles
   - [ ] Filter by tag
   - [ ] Filter by author
@@ -41,9 +41,9 @@ Lucky uses the [Crystal](https://crystal-lang.org) programming language. You can
 - [ ] Feed Articles
   - [ ] Limit number of articles (default is 20)
   - [ ] Offset/skip number of articlse (default is 0)
-- [ ] Get Article
-- [ ] Update Article
-- [ ] Delete Article
+- [x] Get Article
+- [x] Update Article
+- [x] Delete Article
 - [ ] Add Comments to an Article
 - [ ] Get Comments from an Article
 - [ ] Delete Comment
