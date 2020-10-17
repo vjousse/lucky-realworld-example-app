@@ -14,6 +14,11 @@ class Api::Articles::Index < ApiAction
       articles_query = articles_query.where_tags(TagQuery.new.name(tag_filter))
     end
 
+
+    if author_filter = author
+      articles_query = articles_query.where_users(UserQuery.new.username(author_filter))
+    end
+
     json ArticleSerializer.for_collection_with_key(articles_query, "articlesCount")
   end
 end
