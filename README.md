@@ -34,10 +34,9 @@ Lucky uses the [Crystal](https://crystal-lang.org) programming language. You can
 - [x] List Articles
   - [x] Filter by tag
   - [x] Filter by author
-  - [ ] Filter by user
   - [ ] Favorited by user
-  - [ ] Limit number of articles (default is 20)
-  - [ ] Offset/skip number of articles (default is 0)
+  - [x] Limit number of articles (default is 20)
+  - [x] Offset/skip number of articles (default is 0)
 - [ ] Feed Articles
   - [ ] Limit number of articles (default is 20)
   - [ ] Offset/skip number of articlse (default is 0)
