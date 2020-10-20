@@ -12,7 +12,7 @@ class ArticleSerializer < BaseSerializer
       createdAt: @tf.format(@article.created_at),
       updatedAt: @tf.format(@article.updated_at),
       favorited: false,
-      favoritesCount: 0,
+      favoritesCount: @article.favoriting_users.size,
       author: UserSerializer.new(@article.author).render_for_article
     }
   end

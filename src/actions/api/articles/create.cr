@@ -8,6 +8,6 @@ class Api::Articles::Create < ApiAction
       params.from_json["article"]["tagList"].as_a.map(&.as_s)
     )
 
-    json ArticleSerializer.with_key(article.reload(&.preload_tags.preload_author))
+    json ArticleSerializer.with_key(article.reload(&.preload_tags.preload_author.preload_favoriting_users))
   end
 end

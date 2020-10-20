@@ -10,6 +10,9 @@ class User < BaseModel
     column image : String?
     has_many followers : User, through: :follow
     has_many followings : User, through: :follow
+
+    has_many favoritings : Favoriting
+    has_many favorited_articles : Article, through: :favoritings
   end
 
   def emailable : Carbon::Address

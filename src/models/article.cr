@@ -7,5 +7,7 @@ class Article < BaseModel
     belongs_to author : User
     has_many taggings : Tagging
     has_many tags : Tag, through: :taggings
+    has_many favoritings : Favoriting
+    has_many favoriting_users : User, through: :favoritings
   end
 end
