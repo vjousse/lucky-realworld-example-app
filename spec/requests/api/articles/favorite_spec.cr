@@ -9,7 +9,7 @@ describe Api::Articles::Favorite do
     response = ApiClient.auth(article.author).exec(Api::Articles::Favorite.with(article.slug))
 
     json_response = JSON.parse(response.body)
-    json_response["article"]["favorited"].should eq(true)
+    json_response["article"]["favorited"].should be_true
   end
 
 end
