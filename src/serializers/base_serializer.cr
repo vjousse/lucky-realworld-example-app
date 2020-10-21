@@ -8,12 +8,11 @@ abstract class BaseSerializer < Lucky::Serializer
     end
   end
 
-  def self.with_key(object, key=nil, *args, **named_args)
+  def self.with_key(object, *args, **named_args)
     {
       self.single_key => new(object, *args, **named_args)
     }
   end
-
 
   def self.for_collection_with_key(collection : Enumerable, countString=nil, *args, **named_args)
 

@@ -8,7 +8,7 @@ class Api::Articles::Index < ApiAction
   param offset : Int32?
 
   get "/api/articles" do
-    articles_query = ArticleQuery.new.preload_tags.preload_author
+    articles_query = ArticleQuery.new.preload_tags.preload_author.preload_favoriting_users
 
     if tag_filter = tag
       articles_query = articles_query.where_tags(TagQuery.new.name(tag_filter))
