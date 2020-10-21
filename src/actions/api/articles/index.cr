@@ -28,6 +28,6 @@ class Api::Articles::Index < ApiAction
       articles_query = articles_query.offset(offset_filter)
     end
 
-    json ArticleSerializer.for_collection_with_key(articles_query, "articlesCount")
+    json ArticleSerializer.for_collection_with_key(articles_query, "articlesCount", current_user)
   end
 end

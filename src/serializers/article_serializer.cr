@@ -1,5 +1,5 @@
 class ArticleSerializer < BaseSerializer
-  def initialize(@article : Article)
+  def initialize(@article : Article, @user : (User|Nil) = nil)
   end
 
   def render
@@ -11,7 +11,7 @@ class ArticleSerializer < BaseSerializer
       tagList: @article.tags.map(&.name),
       createdAt: @tf.format(@article.created_at),
       updatedAt: @tf.format(@article.updated_at),
-      favorited: false,
+      favorited: @article.favoriting_users.includes?(@user),
       favoritesCount: @article.favoriting_users.size,
       author: UserSerializer.new(@article.author).render_for_article
     }

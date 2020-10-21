@@ -12,7 +12,7 @@ class Api::Articles::Update < ApiAction
       end
     end
 
-    json ArticleSerializer.with_key(article.reload(&.preload_tags.preload_author.preload_favoriting_users))
+    json ArticleSerializer.with_key(article.reload(&.preload_tags.preload_author.preload_favoriting_users), current_user)
 
   end
 end

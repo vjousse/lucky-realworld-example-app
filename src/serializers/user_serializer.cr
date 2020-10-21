@@ -1,5 +1,5 @@
 class UserSerializer < BaseSerializer
-  def initialize(@user : User, @key = "user")
+  def initialize(@user : User)
   end
 
   def render
@@ -25,4 +25,5 @@ class UserSerializer < BaseSerializer
   def self.single_key
     "user"
   end
+
 end
