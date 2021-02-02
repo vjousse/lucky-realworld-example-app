@@ -1,5 +1,7 @@
 require "file_utils"
 
+DB::Log.level = :info
+
 if Lucky::Env.test?
   # Logs to `tmp/test.log` so you can see what's happening without having
   # a bunch of log output in your spec results.

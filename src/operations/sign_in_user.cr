@@ -12,9 +12,9 @@ class SignInUser < Avram::Operation
     validate_credentials(user)
 
     if valid?
-      yield self, user
+      user
     else
-      yield self, nil
+      nil
     end
   end
 

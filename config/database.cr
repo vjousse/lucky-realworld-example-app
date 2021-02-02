@@ -2,9 +2,9 @@ database_name = "lucky_realworld_example_app_#{Lucky::Env.name}"
 
 AppDatabase.configure do |settings|
   if Lucky::Env.production?
-    settings.credentials = Avram::Credentials.parse(ENV["DB_URL"])
+    settings.credentials = Avram::Credentials.parse(ENV["DATABASE_URL"])
   else
-    settings.credentials = Avram::Credentials.parse?(ENV["DB_URL"]?) || Avram::Credentials.new(
+    settings.credentials = Avram::Credentials.parse?(ENV["DATABASE_URL"]?) || Avram::Credentials.new(
       database: database_name,
       hostname: ENV["DB_HOST"]? || "localhost",
       port: ENV["DB_PORT"]?.try(&.to_i) || 5432,
