@@ -28,6 +28,25 @@ describe Api::Articles::Index do
     json_response["articles"][0]["author"]["username"].should eq(article1.author.username)
 
   end
+
+
+  it "filters with favorited" do
+    article1 = ArticleBox.create.reload(&.preload_author)
+    article2 = ArticleBox.create.reload(&.preload_author)
+    article3 = ArticleBox.create.reload(&.preload_author)
+
+    ApiClient.auth(article1.author).exec(Api::Articles::Favorite.with(article1.slug))
+
+    response = ApiClient
+      .auth(article1.author)
+      .exec(Api::Articles::Index.with(favorited: article1.author.username))
+
+    json_response = JSON.parse(response.body)
+    json_response["articlesCount"].as_i.should eq(1)
+    json_response["articles"][0]["favorited"].should be_true
+
+  end
+
   it "filters with limit" do
     limit = 2
     article1 = ArticleBox.create.reload(&.preload_author)
