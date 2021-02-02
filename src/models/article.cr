@@ -6,8 +6,8 @@ class Article < BaseModel
     column body : String
     belongs_to author : User
     has_many taggings : Tagging
-    has_many tags : Tag, through: :taggings
+    has_many tags : Tag, through: [:taggings, :tag]
     has_many favoritings : Favoriting
-    has_many favoriting_users : User, through: :favoritings
+    has_many favoriting_users : User, through: [:favoritings, :user]
   end
 end

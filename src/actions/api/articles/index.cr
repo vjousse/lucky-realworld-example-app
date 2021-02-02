@@ -16,7 +16,11 @@ class Api::Articles::Index < ApiAction
 
 
     if author_filter = author
-      articles_query = articles_query.where_users(UserQuery.new.username(author_filter))
+      articles_query = articles_query.where_author(UserQuery.new.username(author_filter))
+    end
+
+    if favorited_filter = favorited
+      articles_query = articles_query.where_favoriting_users(UserQuery.new.username(favorited_filter))
     end
 
     if limit_filter = limit

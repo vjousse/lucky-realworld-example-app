@@ -46,6 +46,6 @@ Lucky uses the [Crystal](https://crystal-lang.org) programming language. You can
 - [ ] Add Comments to an Article
 - [ ] Get Comments from an Article
 - [ ] Delete Comment
-- [ ] Favorite Article
-- [ ] Unfavorite Article
+- [x] Favorite Article
+- [x] Unfavorite Article
 - [ ] Get Tags

@@ -8,11 +8,11 @@ class User < BaseModel
     column encrypted_password : String
     column username : String?
     column image : String?
-    has_many followers : User, through: :follow
-    has_many followings : User, through: :follow
+    has_many followers : User, through: [:follow, :user]
+    has_many followings : User, through: [:follow, :user]
 
     has_many favoritings : Favoriting
-    has_many favorited_articles : Article, through: :favoritings
+    has_many favorited_articles : Article, through: [:favoritings, :article]
   end
 
   def emailable : Carbon::Address

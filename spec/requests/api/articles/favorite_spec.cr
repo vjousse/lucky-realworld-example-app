@@ -1,7 +1,5 @@
 require "../../../spec_helper"
 
-tf = Time::Format.new("%FT%H:%M:%S.%LZ")
-
 describe Api::Articles::Favorite do
   it "returns a favorited article" do
     article = ArticleBox.create.reload(&.preload_author)

@@ -5,7 +5,7 @@ class RequestPasswordReset < Avram::Operation
   attribute email : String
 
   # Run validations and yield the operation and the user if valid
-  def submit
+  def run
     user = user_from_email
     validate(user)
 
