@@ -19,6 +19,9 @@ to launch test, we use [newman](https://github.com/postmanlabs/newman#getting-st
 
 Lucky uses the [Crystal](https://crystal-lang.org) programming language. You can learn about Lucky from the [Lucky Guides](https://luckyframework.org/guides/getting-started/why-lucky).
 
+### Documentation about API specs
+
+https://github.com/gothinkster/realworld/tree/master/api
 
 ### Progress
 
@@ -48,4 +51,4 @@ Lucky uses the [Crystal](https://crystal-lang.org) programming language. You can
 - [ ] Delete Comment
 - [x] Favorite Article
 - [x] Unfavorite Article
-- [ ] Get Tags
+- [x] Get Tags
